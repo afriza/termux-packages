@@ -15,8 +15,7 @@
          bin_cflags       => "-fPIE",
          bin_lflags       => "-pie",
          enable           => [ ],
--        shared_extension => ".so",
-+        shared_extension => ".so.\$(SHLIB_VERSION_NUMBER)",
+         shared_extension => ".so",
      },
      "android-arm" => {
          ################################################################

@@ -1,7 +1,18 @@
 diff -uNr zlib-1.3/configure zlib-1.3.mod/configure
 --- zlib-1.3/configure	2023-08-18 11:45:36.000000000 +0300
 +++ zlib-1.3.mod/configure	2023-11-29 01:51:17.924387123 +0200
-@@ -438,7 +438,7 @@
+@@ -232,7 +232,9 @@
+         *sparc*)
+             LDFLAGS="${LDFLAGS} -Wl,--no-warn-rwx-segments" ;;
+         esac
+-        LDSHARED=${LDSHARED-"$cc -shared -Wl,-soname,libz.so.1,--version-script,${SRCDIR}zlib.map"} ;;
++        shared_ext='.so'
++        SHAREDLIB='libz_1.so'
++        LDSHARED=${LDSHARED-"$cc -shared -Wl,-soname,libz_1.so,--version-script,${SRCDIR}zlib.map"} ;;
+   *BSD | *bsd* | DragonFly)
+         LDSHARED=${LDSHARED-"$cc -shared -Wl,-soname,libz.so.1,--version-script,${SRCDIR}zlib.map"}
+         LDCONFIG="ldconfig -m" ;;
+@@ -439,7 +441,7 @@
  extern int getchar();
  int hello() {return getchar();}
  EOF
@@ -9,4 +20,4 @@ diff -uNr zlib-1.3/configure zlib-1.3.mod/configure
 +if false; then
    echo Checking for shared library support... | tee -a configure.log
    # we must test in two steps (cc then ld), required at least on SunOS 4.x
-   if try $CC -w -c $SFLAGS $test.c &&
+   if try $CC -c $SFLAGS $test.c &&

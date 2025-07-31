@@ -45,7 +45,6 @@ termux_step_post_get_source() {
 termux_step_host_build() {
 	find $TERMUX_PKG_SRCDIR -mindepth 1 -maxdepth 1 -exec cp -a \{\} ./ \;
 	make -j $TERMUX_PKG_MAKE_PROCESSES \
-		NOCURL=1 \
 		NODEKTEC=1 \
 		NOEDITLINE=1 \
 		NOGITHUB=1 \

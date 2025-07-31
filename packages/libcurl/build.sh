@@ -22,7 +22,8 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --without-librtmp
 --without-brotli
 --without-libpsl
---with-libssh2
+--without-libssh2
+--without-zstd
 --with-ssl
 --with-openssl
 --with-openssl-quic

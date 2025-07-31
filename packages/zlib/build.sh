@@ -20,7 +20,7 @@ termux_step_pre_configure() {
 	CXXFLAGS+=" -fPIC"
 
 	# Fix linker script error for zlib 1.3
-	LDFLAGS+=" -Wl,--undefined-version"
+	LDFLAGS+=" -Wl,--undefined-version -Wl,-soname,libz_1.so"
 }
 
 termux_step_configure() {
